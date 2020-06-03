@@ -33,6 +33,7 @@ snake[0] = {
 
 // Creating Food
 let food = {};
+getFood();
 
 //score
 let score = 0;
@@ -62,3 +63,15 @@ function direction(){
     }
 }
 
+function getFood(){
+    food = {
+        x : Math.floor(Math.random()*(totalMoves-2-3)+3) *snakeBox ,
+        y : Math.floor(Math.random()*(totalMoves-2-3)+3)*snakeBox
+    }
+}
+
+function render(){
+    ctx.fillStyle="#dcdcdc";
+    ctx.fillRect(0,0,canvasSize,canvasSize)
+}
+render();
