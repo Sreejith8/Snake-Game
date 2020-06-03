@@ -31,3 +31,34 @@ snake[0] = {
     y : 10 * snakeBox
 };
 
+// Creating Food
+let food = {};
+
+//score
+let score = 0;
+
+//Snake Direction
+let dir = "";
+
+document.addEventListener("keydown",direction);
+
+function direction(){
+    let key = event.keyCode;
+    if(key==37 && dir!="RIGHT"){
+        dir = "LEFT";
+        left.play();
+    }
+    else if(key==38 && dir!="DOWN"){
+        dir = "UP";
+        up.play();
+    }
+    else if(key==39 && dir!="LEFT"){
+        dir = "RIGHT";
+        right.play();
+    }
+    else if(key==40 && dir!="Up"){
+        dir = "DOWN";
+        down.play();
+    }
+}
+
