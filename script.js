@@ -70,8 +70,72 @@ function getFood(){
     }
 }
 
+function collisionDetection(head,ar){
+    for(i=0;i<ar.lenght;++i){
+        if(ar[i].x == head.x && ar[i].y == head.y){
+            return true;
+        }
+    }
+    return false;
+}
+
+
 function render(){
     ctx.fillStyle="#dcdcdc";
     ctx.fillRect(0,0,canvasSize,canvasSize)
+
+    for(let i=0;i<snake.length;++i){
+        ctx.fillStyle = i==0?"#4CAF50":"white";
+        ctx.fillRect(snake[i].x,snake[i].y,snakeBox,snakeBox);
+        ctx.strokeStyle="#E91E63";
+        ctx.strokeRect(snake[i].x,snake[i].y,snakeBox,snakeBox);
+    }
+
+    ctx.drawImage(apple,food.x,food.y,snakeBox,snakeBox);
+
+    let snakeX = snake[0].x;
+    let snakeY = snake[0].y;
+
+    if(dir=="LEFT") snakeX-=snakeBox;
+    if(dir=="RIGHT") snakeX+=snakeBox;
+    if(dir=="Up") snakeY-=snakeBox;
+    if(dir=="DOWN") snakeY+=snakeBox;
+
+    //checking snake on food or not
+    if(snkaeX == food.x && snakeY == food.y){
+        score++;
+        eat.play();
+        getFood();
+    }
+    else {
+        snake.pop();
+    }
+
+    let newHead = {
+        x : snakeX ,
+        y : snakeY
+    };
+
+    if(snakeX<0 || snakeX>=canvasSize || snakeY<0 || snakeY>=canvasSize || collisionDetection(newHead,snake))
+    {
+        gameover();
+        return;
+    }
+
+    snake.unshift(newHead);
+
+    ctx.fillStyle ="black";
+    ctx.font = "40px tahoma";
+    ctx.fillText(score,10,40);
 }
 render();
+
+var gm = setInterval(render,100);
+
+function gameOver(){
+    clearInterval(gm);
+    dead.play();
+    ctx.fillStyle = "black";
+    ctx.font = "40px tahoma";
+    ctx.fillText("Game Over",canvasSize/2-100,canvasSize/2);
+}
