@@ -1,5 +1,5 @@
 const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2D");
+const ctx = canvas.getContext("2d");
 const canvasSize = 600;
 canvas.width = canvasSize;
 canvas.height = canvasSize;
@@ -67,11 +67,11 @@ function getFood(){
     food = {
         x : Math.floor(Math.random()*(totalMoves-2-3)+3) *snakeBox ,
         y : Math.floor(Math.random()*(totalMoves-2-3)+3)*snakeBox
-    }
+    };
 }
 
 function collisionDetection(head,ar){
-    for(i=0;i<ar.lenght;++i){
+    for(i=0;i<ar.length;++i){
         if(ar[i].x == head.x && ar[i].y == head.y){
             return true;
         }
@@ -98,11 +98,11 @@ function render(){
 
     if(dir=="LEFT") snakeX-=snakeBox;
     if(dir=="RIGHT") snakeX+=snakeBox;
-    if(dir=="Up") snakeY-=snakeBox;
+    if(dir=="UP") snakeY-=snakeBox;
     if(dir=="DOWN") snakeY+=snakeBox;
 
     //checking snake on food or not
-    if(snkaeX == food.x && snakeY == food.y){
+    if(snakeX == food.x && snakeY == food.y){
         score++;
         eat.play();
         getFood();
@@ -118,7 +118,7 @@ function render(){
 
     if(snakeX<0 || snakeX>=canvasSize || snakeY<0 || snakeY>=canvasSize || collisionDetection(newHead,snake))
     {
-        gameover();
+        gameOver();
         return;
     }
 
