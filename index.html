@@ -8,17 +8,42 @@
 </head>
 <body>
     <style>
-        *
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap');
+        body
         {
             margin: 0;
             padding: 0;
+            /*background: linear-gradient(to right,#2193b0,#6dd5ed)*/
+            /*background: linear-gradient(to right,#06beb6, #48b1bf)*/
+            /*background: linear-gradient(to right,#dd2476,#ff512f)*/
+            background: linear-gradient(to right,#4568dc,#b06ab3)
+        }
+        .heading
+        {
+            color: black;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bolder;
+            font-size: 60px;
+            text-align: center
+        }
+        .canvas-body
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         #canvas
         {
-            border: 2px solid black;
+            border: solid 15px black;
+        }
+        .filler
+        {
+            min-width: 100%;
         }
     </style>
-    <canvas id="canvas"></canvas>
+    <div class="canvas-body">
+        <canvas id="canvas"></canvas>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
