@@ -125,7 +125,7 @@ function render(){
     snake.unshift(newHead);
 
     ctx.fillStyle ="black";
-    ctx.font = "40px tahoma";
+    ctx.font = "40px Lexend Tera";
     ctx.fillText(score,10,40);
 }
 render();
@@ -136,6 +136,6 @@ function gameOver(){
     clearInterval(gm);
     dead.play();
     ctx.fillStyle = "black";
-    ctx.font = "40px tahoma";
-    ctx.fillText("Game Over",canvasSize/2-100,canvasSize/2);
+    ctx.font = "40px Lexend Tera";
+    ctx.fillText("Game Over",canvasSize/2-150,canvasSize/2);
 }
