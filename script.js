@@ -57,7 +57,7 @@ function direction(){
         dir = "RIGHT";
         right.play();
     }
-    else if(key==40 && dir!="Up"){
+    else if(key==40 && dir!="UP"){
         dir = "DOWN";
         down.play();
     }
