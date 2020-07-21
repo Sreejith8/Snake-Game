@@ -63,6 +63,41 @@ function direction(){
     }
 }
 
+//Connecting html button with snake
+
+document.getElementById("up-btn").addEventListener('click',function(evt){
+    var target = evt.target;
+    if(target.id == 'upButton'){
+        dir = "UP";
+        up.play();
+    }
+    else{
+        null;
+    }
+},false)
+
+
+document.getElementById("btn").addEventListener('click',function(evt){
+    var target = evt.target;
+    if(target.id == 'leftButton'){
+        dir = "LEFT";
+        left.play();
+    }
+    else if(target.id == 'downButton'){
+        dir = "DOWN";
+        down.play();
+    }
+    else if(target.id == 'rightButton'){
+        dir = "RIGHT";
+        righ.play();
+    }
+    else{
+        null;
+    }
+},false)
+
+//Ends the button connection
+
 function getFood(){
     food = {
         x : Math.floor(Math.random()*(totalMoves-2-3)+3) *snakeBox ,

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Snake Game</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <link rel="shortcut icon" href="images/snake-logo.png" />
 </head>
 <body>
@@ -42,10 +43,42 @@
         {
             min-width: 100%;
         }
+        button
+        {
+            width: 60px;
+            height: 32px;
+            margin: 5px;
+            /*border: none;*/
+            outline: none;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        #up-btn
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #btn
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
     <h1 class="heading">Snake Game</h1>
     <div class="canvas-body">
         <canvas id="canvas"></canvas>
+    </div>
+    <div id="up-btn">
+        <button id="upButton"><i class="fas fa-arrow-circle-up fa-2x"></i></button>
+    </div>
+    <div id="btn">
+        <button id="leftButton"><i class="fas fa-arrow-circle-left fa-2x"></i></button>
+        <button id="downButton"><i class="fas fa-arrow-circle-down fa-2x"></i></button>
+        <button id="rightButton"><i class="fas fa-arrow-circle-right fa-2x"></i></button>
     </div>
     <script src="script.js"></script>
 </body>
